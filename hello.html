@@ -15,12 +15,35 @@
         <div class="map-container">
             {{> googleMap name="exampleMap" options=exampleMapOptions}}
         </div>
-        <!--<div class="map-view-list">-->
-            <!--<ul class="collection">-->
-
-            <!--</ul>-->
-        <!--</div>-->
+        <div class="map-view-list">
+            {{>MapMarkersList}}
+        </div>
 
     </main>
 
 </body>
+
+
+<template name="MapMarkersList">
+
+        <ul class="collection">
+            {{#each mapMarker}}
+                <li class="collection-item {{selectedClass}}">
+
+                    <p>
+                        <small>
+                            Lat: {{lat}}
+                        </small>
+                    </p>
+                    <p>
+                        <small>
+                            Long: {{lng}}
+                        </small>
+                    </p>
+
+                </li>
+            {{/each}}
+
+        </ul>
+
+</template>

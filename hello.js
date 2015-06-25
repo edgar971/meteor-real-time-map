@@ -22,6 +22,7 @@ if (Meteor.isClient) {
     });
 
     Template.body.helpers({
+        //Map stuff
         exampleMapOptions: function() {
             // Make sure the maps API has loaded
             if (GoogleMaps.loaded()) {
@@ -34,13 +35,14 @@ if (Meteor.isClient) {
             }
         }
 
+
     });
 
     Template.body.onCreated(function() {
         // We can use the `ready` callback to interact with the map API once the map is ready.
         GoogleMaps.ready('exampleMap', function(map) {
-            //get users location
-            console.log(GoogleMaps);
+
+            console.log(map.instance.getBounds());
 
             // Add a marker to the map once it's ready
             //add coordinates to DB on map click
@@ -92,6 +94,15 @@ if (Meteor.isClient) {
         });
 
     });
+    //Markers list view
+    Template.MapMarkersList.helpers({
+        "mapMarker": function() {
+            if (GoogleMaps.loaded()) {
+                return MapMarkers.find();
+            }
+
+        }
+    })
 }
 
 if (Meteor.isServer) {

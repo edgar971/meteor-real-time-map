@@ -1,23 +1,26 @@
 /* CSS declarations go here */
 .map-container {
-    width: 100%;
-    max-width: 100%;
+    width: 75%;
+    max-width: 75%;
     height: 100%;
     position: absolute;
     left:0;
     top:64px;
 }
-/*.map-view-list {*/
-    /*position: absolute;*/
-    /*right: 0;*/
-    /*width: 20%;*/
-    /*max-width: 20%;*/
-    /*top:64px;*/
-    /*background: red;*/
-    /*height: 100%;*/
-    /*overflow: scroll;*/
+.map-view-list {
+    position: absolute;
+    right: 0;
+    width: 25%;
+    max-width: 25%;
+    top:64px;
 
-/*}*/
+    height: 100%;
+    overflow: scroll;
+
+}
+.collection {
+    margin: 0;
+}
 
 @media only screen and (max-width: 601px) {
     .map-container, .map-view-list {
