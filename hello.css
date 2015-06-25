@@ -1,0 +1,26 @@
+/* CSS declarations go here */
+.map-container {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:64px;
+}
+/*.map-view-list {*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*width: 20%;*/
+    /*max-width: 20%;*/
+    /*top:64px;*/
+    /*background: red;*/
+    /*height: 100%;*/
+    /*overflow: scroll;*/
+
+/*}*/
+
+@media only screen and (max-width: 601px) {
+    .map-container, .map-view-list {
+        top: 57px;
+    }
+}
