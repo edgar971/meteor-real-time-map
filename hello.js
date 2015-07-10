@@ -92,7 +92,6 @@ if (Meteor.isClient) {
 
 
         });
-
     });
     //Markers list view
     Template.MapMarkersList.helpers({
