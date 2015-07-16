@@ -58,13 +58,14 @@ if (Meteor.isClient) {
             //observe the db
             MapMarkers.find().observe({
                 added: function(document) {
-
+                    var imgIcon = 'http://maps.cityofdavis.org/davis/images/home.png';
                     var marker = new google.maps.Marker({
                         draggable: true,
                         animation: google.maps.Animation.DROP,
                         position: new google.maps.LatLng(document.lat, document.lng),
                         map: map.instance,
-                        id: document._id
+                        id: document._id,
+                        icon: imgIcon
                     });
 
                     //update marker POS on drag of marker
@@ -97,10 +98,26 @@ if (Meteor.isClient) {
     Template.MapMarkersList.helpers({
         "mapMarker": function() {
             if (GoogleMaps.loaded()) {
-                return MapMarkers.find();
+                return MapMarkers.find().fetch().reverse();
             }
 
         }
+    })
+    //events for list view items
+    Template.MapMarkersList.events({
+        'mouseenter li': function(e){
+            //get the lat and long
+            var LatLong = new google.maps.LatLng(this.lat, this.lng);
+            //set the map center but wait a little
+            setTimeout(function(){
+                GoogleMaps.maps.exampleMap.instance.setCenter(LatLong);
+            },500);
+
+
+
+
+
+         }
     })
 }
 
